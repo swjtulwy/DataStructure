@@ -56,6 +56,8 @@ public:
 	void Sort();
 	// 前插法建立单链表
 	void inputFront(T endTag);
+	// 尾插法建立链表
+	void inputBack(T endTag);
 	// 打印链表
 	void Print();
 	// 翻转链表
@@ -197,8 +199,7 @@ bool LinkedList<T>::SetData(int pos, T& item) {
 }
 
 
-// 链表排序，冒泡法
-//void Sort();
+// 链表排序，冒泡法, 以后联系排序再改进吧..
 template<typename T>
 void LinkedList<T>::Sort() {
 	if (head == nullptr) {
@@ -216,7 +217,7 @@ void LinkedList<T>::Sort() {
 }
 
 
-// 前插法建立单链表
+// 头插法建立单链表
 template<typename T>
 void LinkedList<T>::inputFront(T endTag){
 	Node<T>* newNode;
@@ -230,6 +231,24 @@ void LinkedList<T>::inputFront(T endTag){
 		}
 		newNode->next = head->next;
 		head->next = newNode;
+		cin >> data;
+	}
+}
+
+// 尾插法建立单链表
+template<typename T>
+void LinkedList<T>::inputBack(T endTag) {
+	Node<T>* newNode, *r=head;
+	T data;
+	Clear();
+	cin >> data;
+	while (data != endTag) {
+		newNode = new Node<T>(data);
+		if (newNode == nullptr) {
+			return;
+		}
+		r->next = newNode;
+		r = newNode;
 		cin >> data;
 	}
 }
@@ -280,7 +299,7 @@ void LinkedList<T>::Merge(LinkedList& List) {
 	p2 = List.head->next; // 检测指针跳过表头结点
 	head->next = nullptr; // 结果链表初始化
 	while (p1 != nullptr && p2 != nullptr) {
-		if (p1->data <= p2->data) {
+		if (p1->data >= p2->data) {
 			q = p1; 
 			p1 = p1->next; // 从p1中摘下
 		}
@@ -289,7 +308,7 @@ void LinkedList<T>::Merge(LinkedList& List) {
 			p2 = p2->next; // 从p2中摘下
 		}
 		q->next = head->next;
-		head->next = q; // 放入结果链表的链头
+		head->next = q; // 放入结果链表的链头,头插
 	}
 	p = (p1 != nullptr) ? p1 : p2;
 	// 处理完剩余部分
@@ -299,6 +318,7 @@ void LinkedList<T>::Merge(LinkedList& List) {
 		q->next = head->next;
 		head->next = q;
 	}
+	this->Sort();
 }
 
 // 求链表的中间结点,采用快慢指针法
@@ -306,13 +326,13 @@ template<typename T>
 Node<T>* LinkedList<T>::GetMidNode() {
 	Node<T>* fast = head, * slow = head;
 	while (fast) {
-		if (fast->next) {
-			fast = fast->next->next;
+		if (fast->next) { 
+			fast = fast->next->next; // 一次跳两步步
 		}
 		else{
 			break;
 		}
-		slow = slow->next;
+		slow = slow->next; // 一次跳一步
 	}
-	return slow;
+	return slow; // 两步的指针跳完了，慢指针应当停在中间
 }
