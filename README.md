@@ -7,17 +7,12 @@
   - 实现一个支持动态扩容的数组，支持动态增删改操作
   - 实现两个有序数组合并为一个有序数组
   - 学习哈希表思想，并完成leetcode上的两数之和(1)及Happy Number(202)！(要求全部用哈希思想实现！)（选做）（注意：在第四天会进行继续学习）
-
 - 链表
 
   - 实现单链表、循环链表、双向链表，支持增删操作
-
-  - 实现单链表反转
-
+- 实现单链表反转
   - 实现两个有序的链表合并为一个有序链表
-
-  - 实现求链表的中间结点
-
+- 实现求链表的中间结点
 -  LeetCode 练习题
 
   - Three Sum（求三数之和）
@@ -34,3 +29,18 @@
 
   - Merge k Sorted Lists（合并 k 个排序链表）
     - https://leetcode.com/problems/merge-k-sorted-lists/
+
+---
+
+## Task1 Solution
+
+#### 动态数组实现：
+
+https://github.com/swjtulwy/DataStructure/blob/master/Task1/dynamic_array.h
+
+#### 单链表及其操作（反转、合并、中间结点等）:
+
+https://github.com/swjtulwy/DataStructure/blob/master/Task1/single_linked_list.h
+
+
+
