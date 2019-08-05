@@ -20,9 +20,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="dynamic_array.h" />
+    <ClInclude Include="single_linked_list.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="circle_linked_list.cpp" />
     <ClCompile Include="dynamic_array.cpp" />
+    <ClCompile Include="single_linked_list.cpp" />
     <ClCompile Include="test_main.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

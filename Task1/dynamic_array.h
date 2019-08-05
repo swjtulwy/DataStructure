@@ -12,7 +12,7 @@ private:
 	T* m_Array;
 	int m_Length;
 public:
-	// 构造函数,给数组申请空间
+	// 构造函数,给数组申请空间 
 	DynamicArray();
 	//拷贝构造函数, 在使用这个对象的实例来初始化这个对象的一个新的实例
 	template <int X>
@@ -157,6 +157,7 @@ bool DynamicArray<T, N>::Sort() {
 	return true;
 }
 
+// 实现两个有序数组合并
 template <typename T, int N>
 	template<int Z>
 bool DynamicArray<T, N>::MergeSortedArray(DynamicArray<T, Z>& arr) {
