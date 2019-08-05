@@ -9,10 +9,10 @@ void TestSingleLinkedList() {
 	L->Print();
 	L->Reverse(); //翻转链表
 	L->Print();
-	LinkedList<int>* L1 = new LinkedList<int>(2);
+	LinkedList<int>* L1 = new LinkedList<int>(2); // 合并有序列表
 	L1->inputFront(-1);
 	L1->Print();
 	L->Merge(*L1);
 	L->Print();
-
+	cout<<L->GetMidNode()->data;// 中间结点
 }

@@ -288,7 +288,7 @@ void LinkedList<T>::Merge(LinkedList& List) {
 			q = p2;
 			p2 = p2->next; // 从p2中摘下
 		}
-		p->next = head->next;
+		q->next = head->next;
 		head->next = q; // 放入结果链表的链头
 	}
 	p = (p1 != nullptr) ? p1 : p2;
@@ -301,5 +301,18 @@ void LinkedList<T>::Merge(LinkedList& List) {
 	}
 }
 
-// 求链表的中间结点
-//Node<T>* GetMidNode();
+// 求链表的中间结点,采用快慢指针法
+template<typename T>
+Node<T>* LinkedList<T>::GetMidNode() {
+	Node<T>* fast = head, * slow = head;
+	while (fast) {
+		if (fast->next) {
+			fast = fast->next->next;
+		}
+		else{
+			break;
+		}
+		slow = slow->next;
+	}
+	return slow;
+}
