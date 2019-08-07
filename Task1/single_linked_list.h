@@ -55,9 +55,9 @@ public:
 	// 链表排序
 	void Sort();
 	// 前插法建立单链表
-	void inputFront(T endTag);
+	void InputFront(T endTag);
 	// 尾插法建立链表
-	void inputBack(T endTag);
+	void InputBack(T endTag);
 	// 打印链表
 	void Print();
 	// 翻转链表
@@ -219,7 +219,7 @@ void LinkedList<T>::Sort() {
 
 // 头插法建立单链表
 template<typename T>
-void LinkedList<T>::inputFront(T endTag){
+void LinkedList<T>::InputFront(T endTag){
 	Node<T>* newNode;
 	T data;
 	Clear();
@@ -237,7 +237,7 @@ void LinkedList<T>::inputFront(T endTag){
 
 // 尾插法建立单链表
 template<typename T>
-void LinkedList<T>::inputBack(T endTag) {
+void LinkedList<T>::InputBack(T endTag) {
 	Node<T>* newNode, *r=head;
 	T data;
 	Clear();

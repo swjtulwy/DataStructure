@@ -24,6 +24,9 @@
     <ClInclude Include="circle_linked_list.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="doubly_linked_list.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dynamic_array.cpp">
@@ -36,6 +39,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="single_linked_list.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="doubly_linked_list.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
