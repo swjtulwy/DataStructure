@@ -24,6 +24,10 @@ public:
 	void InputBack(const T endTag);
 	void Clear();
 	void Print();
+	DNode<T>* Locate(const int pos);
+	int Length();
+	bool Insert(T item, const int pos);
+	bool Delete(const int pos, T& item);
 	~DoublyLinkedList() { Clear(); };
 
 private:
@@ -87,4 +91,72 @@ void DoublyLinkedList<T>::Print() {
 	}
 }
 
+// 获取长度
+template<typename T>
+int DoublyLinkedList<T>::Length() {
+	int count = 0;
+	DNode<T>* p = head->next;
+	while (p) {
+		count++;
+		p = p->next;
+	}
+	return count;
+}
 
+template <typename T>
+DNode<T>* DoublyLinkedList<T>::Locate(const int pos) {
+	if (pos<0 || pos>this->Length() - 1) {
+		return head;
+	}
+	DNode<T>* p = head->next;
+	int count = 0;
+	while (count<pos){
+		p = p->next;
+		count++;
+	}
+	return p;
+}
+
+template<typename T>
+bool DoublyLinkedList<T>::Insert(T item, const int pos) {
+	if (pos<0 || pos>this->Length() || !head->next) { // 允许在最后面插,不能插入空链表
+		return false;
+	}
+	DNode<T>* newNode=new DNode<T>(item);
+	if (pos == 0) { // 插在头部
+		newNode->next = head->next;
+		newNode->prev = head;
+		head->next = newNode;
+		newNode->next->prev = newNode;
+	}
+	else{
+		DNode<T>* cur = this->Locate(pos - 1);
+		newNode->next = cur->next;
+		newNode->prev = cur;
+		cur->next = newNode;
+		if (!newNode->next) {
+			return true;
+		}
+		newNode->next->prev = newNode;
+	}
+	return true;
+}
+
+
+template<typename T>
+bool DoublyLinkedList<T>::Delete(const int pos, T& item) {
+	if (pos<0 || pos>this->Length()-1 || !head->next) { 
+		return false;
+	}
+	DNode<T>* q = this->Locate(pos);
+	item = q->data;
+	if (!q->next) {
+		q->prev->next = nullptr;
+	}
+	else{
+		q->prev->next = q->next;
+		q->next->prev = q->prev;
+	}
+	delete q;
+	return true;
+}

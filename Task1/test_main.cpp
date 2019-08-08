@@ -11,7 +11,7 @@ int main() {
 	//TestDynamicArray(); //测试动态数组
 	//TestSingleLinkedList();// 测试单链表及其一系列操作
 	//TestCircleLinkedList(); // 测试循环链表及其增删操作
-	TestDoublyLinkedList();
+	TestDoublyLinkedList(); // 测试双向链表及其增删操作
 	return 0;
 }
 
