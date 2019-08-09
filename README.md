@@ -99,8 +99,16 @@ https://github.com/swjtulwy/DataStructure/blob/master/Task1/single_linked_list.h
 
 #### 队列的实现：
 
-数组实现：
+数组实现：https://github.com/swjtulwy/DataStructure/blob/master/Task2/queue_array.h
 
-链表实现：
+链表实现：https://github.com/swjtulwy/DataStructure/blob/master/Task2/queue_linked_list.h
+
+循环队列实现：https://github.com/swjtulwy/DataStructure/blob/master/Task2/queue_circle.h
 
 #### 递归算法：
+
+https://github.com/swjtulwy/DataStructure/blob/master/Task2/recursion.cpp
+
+#### 总结
+
+这次把基本的栈和队列分别用数组和链表实现了一遍，有了上次的基础，写了稍微快一些，但是还要努力。在实现的过程中会去看STL中有哪些函数，再参考网上其他人的实现，最后自己总结一下。最大的收获在于循环队列的判断的处理，还有一个是顺序数组实现队列中的假溢出问题，最终还是解决了，理解到不同的数据结构有各自的优点和缺点。

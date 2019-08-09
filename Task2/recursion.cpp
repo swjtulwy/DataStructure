@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-
+#include <algorithm>
 using namespace std;
 
 // 本文件中函数全部采用递归实现
@@ -31,7 +31,8 @@ int Factorial(int n) {
 }
 
 //编程实现一组数据集合的全排列
-void FullPermutation(vector<int> v) {
+// 包含begin 不包含end,[begin,end)
+void FullPermutation(vector<int> v, int begin, int end) {
 	
 }
 
@@ -53,5 +54,6 @@ extern void TestFactorial() {
 }
 
 extern void TestFullPermutation() {
-	
+	vector<int> v = { 4,3,7,9};
+	FullPermutation(v, 0, v.size());
 }

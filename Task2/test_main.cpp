@@ -15,8 +15,8 @@ int main() {
 	//TestQueueArray();			// 测试数组实现的顺序队列
 	//TestQueneLinkedList();	// 测试链表实现的队列
 	//TestQueueCircle();        // 测试数组实现的循环队列
-	TestFibonacci();			// 测试斐波那契数列
-	TestFactorial();		    // 测试阶乘
+	//TestFibonacci();			// 测试斐波那契数列
+	//TestFactorial();		    // 测试阶乘
 	TestFullPermutation();		// 测试全排列
 	return 0;
 }
