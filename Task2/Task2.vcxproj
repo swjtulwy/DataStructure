@@ -123,12 +123,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="quene_array.h" />
+    <ClInclude Include="queue_array.h" />
+    <ClInclude Include="queue_circle.h" />
+    <ClInclude Include="queue_linked_list.h" />
     <ClInclude Include="stack_array.h" />
     <ClInclude Include="stack_linked_list.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="quene_linked_list.cpp" />
+    <ClCompile Include="queue_array.cpp" />
+    <ClCompile Include="queue_circle.cpp" />
+    <ClCompile Include="queue_linked_list.cpp" />
     <ClCompile Include="stack_array.cpp" />
     <ClCompile Include="stack_linked_list.cpp" />
     <ClCompile Include="test_main.cpp" />

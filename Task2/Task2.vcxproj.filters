@@ -21,7 +21,13 @@
     <ClInclude Include="stack_linked_list.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="quene_array.h">
+    <ClInclude Include="queue_array.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="queue_circle.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="queue_linked_list.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
@@ -35,7 +41,13 @@
     <ClCompile Include="stack_linked_list.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="quene_linked_list.cpp">
+    <ClCompile Include="queue_array.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="queue_circle.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="queue_linked_list.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

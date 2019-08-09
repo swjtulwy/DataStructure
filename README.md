@@ -93,6 +93,14 @@ https://github.com/swjtulwy/DataStructure/blob/master/Task1/single_linked_list.h
 
 #### 栈的实现：
 
+数组实现：https://github.com/swjtulwy/DataStructure/blob/master/Task2/stack_array.h
+
+链表实现：https://github.com/swjtulwy/DataStructure/blob/master/Task2/stack_linked_list.h
+
 #### 队列的实现：
+
+数组实现：
+
+链表实现：
 
 #### 递归算法：

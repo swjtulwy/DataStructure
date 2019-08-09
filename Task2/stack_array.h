@@ -1,9 +1,8 @@
 #pragma once
 #include <iostream>
+#define kMAXSIZE 0xffff
 
 using namespace std;
-
-const int kMAXSIZE = 0xffff;
 
 void TestStackArray();
 
@@ -28,7 +27,7 @@ public:
 		}
 	}
 	~StackArray() {
-		delete[] m_maxSize;
+		delete[] m_stack;
 	};
 	void Push(T val);
 	void Pop();

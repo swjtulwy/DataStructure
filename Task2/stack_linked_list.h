@@ -14,6 +14,7 @@ struct Node
 	Node(T val) :data(val), next(nullptr) {};
 };
 
+// 不包含dummy结点
 template<typename T>
 class StackLinkedList
 {
