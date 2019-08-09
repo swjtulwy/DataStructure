@@ -46,13 +46,11 @@ https://github.com/swjtulwy/DataStructure/blob/master/Task1/single_linked_list.h
 
 **Two Sum(1):** https://leetcode.com/problems/two-sum/discuss/351900/cpp-solution
 
-**Happy Number(202):**https://leetcode.com/problems/happy-number/discuss/352416/cpp-solution
+**Happy Number(202):** https://leetcode.com/problems/happy-number/discuss/352416/cpp-solution
 
-**Majority Element(169):**https://leetcode.com/problems/majority-element/discuss/352478/cpp-solution
+**Majority Element(169):** https://leetcode.com/problems/majority-element/discuss/352478/cpp-solution
 
-**Linked List Cycle I(141):**https://leetcode.com/submissions/detail/249428602/
-
-**Merge k Sorted Lists(23):**
+**Linked List Cycle I(141):** https://leetcode.com/submissions/detail/249428602/
 
 #### 总结
 
