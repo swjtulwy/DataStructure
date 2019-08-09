@@ -133,6 +133,7 @@
     <ClCompile Include="queue_array.cpp" />
     <ClCompile Include="queue_circle.cpp" />
     <ClCompile Include="queue_linked_list.cpp" />
+    <ClCompile Include="recursion.cpp" />
     <ClCompile Include="stack_array.cpp" />
     <ClCompile Include="stack_linked_list.cpp" />
     <ClCompile Include="test_main.cpp" />

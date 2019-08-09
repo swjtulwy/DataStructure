@@ -50,5 +50,8 @@
     <ClCompile Include="queue_linked_list.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="recursion.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
