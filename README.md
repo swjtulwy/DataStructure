@@ -13,22 +13,6 @@
 - 实现单链表反转
   - 实现两个有序的链表合并为一个有序链表
 - 实现求链表的中间结点
--  LeetCode 练习题
-
-  - Three Sum（求三数之和）
-    - https://leetcode-cn.com/problems/3sum/
-
-  - Majority Element（求众数）
-    - https://leetcode.com/problems/majority-element/
-
-  - Missing Positive（求缺失的第一个正数）[作为可选]
-    - https://leetcode.com/problems/first-missing-positive/
-
-  - Linked List Cycle I（环形链表）
-    - https://leetcode.com/problems/linked-list-cycle/
-
-  - Merge k Sorted Lists（合并 k 个排序链表）
-    - https://leetcode.com/problems/merge-k-sorted-lists/
 
 ---
 
@@ -41,16 +25,6 @@ https://github.com/swjtulwy/DataStructure/blob/master/Task1/dynamic_array.h
 #### 单链表及其操作（反转、合并、中间结点等）:
 
 https://github.com/swjtulwy/DataStructure/blob/master/Task1/single_linked_list.h
-
-#### LeetCode题解
-
-**Two Sum(1):** https://leetcode.com/problems/two-sum/discuss/351900/cpp-solution
-
-**Happy Number(202):** https://leetcode.com/problems/happy-number/discuss/352416/cpp-solution
-
-**Majority Element(169):** https://leetcode.com/problems/majority-element/discuss/352478/cpp-solution
-
-**Linked List Cycle I(141):** https://leetcode.com/submissions/detail/249428602/
 
 #### 总结
 
@@ -119,8 +93,21 @@ https://github.com/swjtulwy/DataStructure/blob/master/Task2/recursion.cpp
 
 - 【二分查找】
   - 实现一个有序数组的二分查找算法
-
-  - 实现模糊二分查找算法（比如大于等于给定值的第一个元素）
-
+- 实现模糊二分查找算法（比如大于等于给定值的第一个元素）
   
-  
+
+---
+
+## Task3 Solution
+
+#### 排序（八大排序的实现）：
+
+https://github.com/swjtulwy/DataStructure/blob/master/Task3/sorting.h
+
+#### 二分查找的实现：
+
+https://github.com/swjtulwy/DataStructure/blob/master/Task3/binary_search.h
+
+#### 总结
+
+难点在于处理各个数组中的边界问题，判断条件问题，特别是快速排序。快速排序的思想很重要，其效率也很高，是二十世纪十大算法之一。另外堆的数据结构也牵扯到完全二叉树的概念以及怎么计算孩子结点位置，树的高度，宽度等，这些知识需要牢牢掌握。
