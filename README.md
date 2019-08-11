@@ -93,8 +93,7 @@ https://github.com/swjtulwy/DataStructure/blob/master/Task2/recursion.cpp
 
 - 【二分查找】
   - 实现一个有序数组的二分查找算法
-- 实现模糊二分查找算法（比如大于等于给定值的第一个元素）
-  
+  - 实现模糊二分查找算法（比如大于等于给定值的第一个元素）
 
 ---
 
