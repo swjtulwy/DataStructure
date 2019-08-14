@@ -85,8 +85,8 @@ void LRUCache::SetCache(int key, int value) {
 	else {   // 如果原来没有这个缓存块
 		CacheNode* newNode = new CacheNode(key, value);
 		if (m_map.getSize() >= m_size) {  // 如果缓存队列已满，则淘汰队尾的缓存块
-			m_map.Delete(m_tail->key);
-			Remove(m_tail);
+			m_map.Delete(m_tail->key);  // 先删除hashmap中的记录
+			Remove(m_tail);   // 在将该队尾的缓存块淘汰
 		}
 		SetHead(newNode);  // 那么将该缓存块放到队首
 		m_map.Insert(key, newNode);  // 同时hashmap中也记录该缓存块信息

@@ -1,8 +1,10 @@
 #include "hash_table.h"
 #include "LRU_cache.h"
+#include "tries_tree.h"
 
 int main() {
 	//TestHashTable(); //≤‚ ‘π˛œ£±Ì
-	TestLRUCache();  // ≤‚ ‘LRUÀ„∑®
+	//TestLRUCache();  // ≤‚ ‘LRUÀ„∑®
+	TestTrieTree();
 	return 0;
 }
