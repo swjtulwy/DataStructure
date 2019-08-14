@@ -131,3 +131,14 @@ https://github.com/swjtulwy/DataStructure/blob/master/Task3/binary_search.h
 
 ## Task4 Solution
 
+#### 散列表
+
+散列表拉链法解决冲突：https://github.com/swjtulwy/DataStructure/blob/master/Task4/hash_table.h
+
+LRU缓存淘汰算法：https://github.com/swjtulwy/DataStructure/blob/master/Task4/LRU_cache.cpp
+
+#### 字符串
+
+字符集实现：
+
+朴素字符串匹配：
