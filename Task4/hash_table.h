@@ -70,7 +70,11 @@ public:
 	void Clear();
 	void Print();
 	unsigned int getSize() { return m_size; }
-	HashTable() :m_table(0),m_slotSize(0),m_size(0){};
+	V& operator[](const K& key);
+	HashTable() :m_table(0), m_slotSize(10), m_size(0) {
+		m_table = new Node * [m_slotSize];
+		memset(m_table, 0, sizeof(Node*) * m_slotSize);
+	};
 	// 带散列表长度的初始化
 	HashTable(unsigned int slotSize) {
 		m_slotSize = slotSize;
@@ -103,7 +107,7 @@ bool HashTable<K, V>::Find(const K& key, V* val) {
 		if (node->key == key) {
 			// 找到键了，如果val不为0，返回对应的值
 			if (val != 0) {
-				*val = node->val;
+				*val = node->val; // val为指向值得指针
 			}
 			return true;
 		}
@@ -183,3 +187,16 @@ void HashTable<K, V>::Print() {
 	cout << "} " << endl;
 }
 
+template<typename K, typename V>
+V& HashTable<K, V>::operator[](const K& key) {
+	unsigned int pos = HashKey(key) % m_slotSize;
+	Node* node = m_table[pos];  // 遍历指针
+	while (node != 0) {
+		if (node->key == key) {
+			return node->val;
+		}
+		node = node->next;
+	}
+	cout << "input error!" << endl;
+	exit(1);
+}

@@ -27,5 +27,8 @@ void TestHashTable() {
 	cout << "find result of nmsl: " << H1->Find("nmsl") << endl;
 	cout << "find result of aunt: " << H1->Find("aunt") << endl;
 	H1->Print();
+	(*H1)["sister"] = 100;
+	cout << (*H1)["sister"] << endl;
+	H1->Print();
 	H1->Clear();
 }

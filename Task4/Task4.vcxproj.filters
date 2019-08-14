@@ -18,12 +18,18 @@
     <ClInclude Include="hash_table.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="LRU_cache.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="hash_table.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="test_main.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="LRU_cache.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
