@@ -141,4 +141,4 @@ LRU缓存淘汰算法：https://github.com/swjtulwy/DataStructure/blob/master/Ta
 
 字符集实现：https://github.com/swjtulwy/DataStructure/blob/master/Task4/tries_treee.cpp
 
-朴素字符串匹配：
+朴素字符串匹配：https://github.com/swjtulwy/DataStructure/blob/master/Task4/string_match.cpp
