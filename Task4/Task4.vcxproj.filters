@@ -24,6 +24,9 @@
     <ClInclude Include="tries_tree.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="string_match.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="hash_table.cpp">
@@ -36,6 +39,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="tries_treee.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="string_match.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

@@ -125,11 +125,13 @@
   <ItemGroup>
     <ClInclude Include="hash_table.h" />
     <ClInclude Include="LRU_cache.h" />
+    <ClInclude Include="string_match.h" />
     <ClInclude Include="tries_tree.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="hash_table.cpp" />
     <ClCompile Include="LRU_cache.cpp" />
+    <ClCompile Include="string_match.cpp" />
     <ClCompile Include="test_main.cpp" />
     <ClCompile Include="tries_treee.cpp" />
   </ItemGroup>
