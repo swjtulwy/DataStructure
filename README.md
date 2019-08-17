@@ -168,3 +168,10 @@ https://github.com/swjtulwy/DataStructure/blob/master/Task5/binary_search_tree.h
 
 #### 堆的实现
 
+堆：https://github.com/swjtulwy/DataStructure/blob/master/Task5/heap_array.h
+
+优先队列(包括合并 K 个有序数组和 Top K):
+
+https://github.com/swjtulwy/DataStructure/blob/master/Task5/priority_queue.h
+
+https://github.com/swjtulwy/DataStructure/blob/master/Task5/priority_queue.cpp
