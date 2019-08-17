@@ -21,9 +21,21 @@
     <ClCompile Include="binary_search_tree.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="heap_array.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="priority_queue.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="binary_search_tree.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="heap_array.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="priority_queue.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

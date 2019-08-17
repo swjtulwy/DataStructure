@@ -185,6 +185,7 @@ bool BinarySearchTree<T>::Delete(const T& val) {
 	return false;
 }
 
+// Çó¸¸Ä¸½áµã
 template<typename T>
 Node<T>* BinarySearchTree<T>::GetParent(Node<T>* cur) {
 	if (cur == m_root) {
