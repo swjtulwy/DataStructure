@@ -6,7 +6,7 @@
 int main() {
 	//TestHashTable(); //²âÊÔ¹şÏ£±í
 	//TestLRUCache();  // ²âÊÔLRUËã·¨
-	//TestTrieTree();  // ²âÊÔ×ÖµäÊ÷
-	TestStringMatch();  // ²âÊÔ×Ö·û´®Æ¥Åä
+	TestTrieTree();  // ²âÊÔ×ÖµäÊ÷
+	//TestStringMatch();  // ²âÊÔ×Ö·û´®Æ¥Åä
 	return 0;
 }

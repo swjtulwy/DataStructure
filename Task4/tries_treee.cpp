@@ -125,3 +125,7 @@ void TrieTree::LevelOrderTraverse() {
 	}
 	cout << endl;
 }
+
+void TrieTree::Print() {
+	
+}
