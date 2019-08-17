@@ -142,3 +142,29 @@ LRU缓存淘汰算法：https://github.com/swjtulwy/DataStructure/blob/master/Ta
 字符集实现：https://github.com/swjtulwy/DataStructure/blob/master/Task4/tries_treee.cpp
 
 朴素字符串匹配：https://github.com/swjtulwy/DataStructure/blob/master/Task4/string_match.cpp
+
+---
+
+## Task 5：二叉树 + 堆 
+
+- 【二叉树】
+  - 实现一个二叉查找树，并且支持插入、删除、查找操作
+  - 实现查找二叉查找树中某个节点的后继、前驱节点
+  - 实现二叉树前、中、后序以及按层遍历
+
+- 【堆】
+  - 实现一个小顶堆、大顶堆、优先级队列
+  - 实现堆排序
+  - 利用优先级队列合并 K 个有序数组
+  - 求一组动态数据集合的最大 Top K
+
+---
+
+## Task5 Solution
+
+#### 二叉搜索树实现(BST)
+
+https://github.com/swjtulwy/DataStructure/blob/master/Task5/binary_search_tree.h
+
+#### 堆的实现
+
