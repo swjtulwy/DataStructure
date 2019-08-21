@@ -194,3 +194,6 @@ https://github.com/swjtulwy/DataStructure/blob/master/Task5/priority_queue.cpp
 
 由此可以看出，无向图的邻接矩阵是对称的，有向图的邻接矩阵则不一定。有向图的邻接表只链接顶点指向的顶点，不记录顶点被指向的边。有权图的邻接矩阵表示法相对于无权图的区别就是，有权图的邻接矩阵即二维数组中每一项存储的是边的权值，而无权图只存储有或无边的信息（用0/1表示）。有权图的邻接表表示相对于无权图表示，边表结构中需要多用一个量表示权值，而无权图只需记录顶点信息和指针域即可。
 
+#### 图的邻接矩阵表示以及增删顶点、边操作和两种遍历：
+
+https://github.com/swjtulwy/DataStructure/blob/master/Task6/graph_adjmat.cpp
