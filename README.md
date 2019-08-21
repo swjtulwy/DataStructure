@@ -175,3 +175,22 @@ https://github.com/swjtulwy/DataStructure/blob/master/Task5/binary_search_tree.h
 https://github.com/swjtulwy/DataStructure/blob/master/Task5/priority_queue.h
 
 https://github.com/swjtulwy/DataStructure/blob/master/Task5/priority_queue.cpp
+
+## Task 6：图 
+
+- 【图】
+  - 实现有向图、无向图、有权图、无权图的邻接矩阵和邻接表表示方法
+  - 实现图的深度优先搜索、广度优先搜索
+  - 实现 Dijkstra 算法
+  - 实现拓扑排序
+
+---
+
+## Task6 Solution
+
+图的邻接矩阵存储方式是用两个数组来表示图，一个一维数组存储图中的顶点信息，一个二维数组(邻接矩阵)存储图中的边或弧的信息。
+
+图的邻接表存储方式是用一个存放指向顶点的指针的数组表示，其中数组每一项可以是一个链表，用来表示该项代表顶点所邻接哪些顶点。
+
+由此可以看出，无向图的邻接矩阵是对称的，有向图的邻接矩阵则不一定。有向图的邻接表只链接顶点指向的顶点，不记录顶点被指向的边。有权图的邻接矩阵表示法相对于无权图的区别就是，有权图的邻接矩阵即二维数组中每一项存储的是边的权值，而无权图只存储有或无边的信息（用0/1表示）。有权图的邻接表表示相对于无权图表示，边表结构中需要多用一个量表示权值，而无权图只需记录顶点信息和指针域即可。
+
