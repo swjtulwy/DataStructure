@@ -1,5 +1,6 @@
 #include "graph_adjmat.h"
 #include <iostream>
+#include <vector>
 
 using namespace std;
 
@@ -377,83 +378,238 @@ void GraphAdjMat::Display_BFS(string v) {
 }
 
 
+// 求单源最短路径
+void GraphAdjMat::Dijkstra(string vertex) {
+	
+	int start = Locate(vertex);
+	if (start == -1) {
+		return;
+	}
+	if (this->type == DG || this->type == UDG) {
+		cout << "必须是加权连通图！" << endl;   // 边上要有权重，这样才能计算路径长度
+		return;
+	}
+
+
+	//数组 D 来记录当前所找到的从源点 s 到每个顶点的最短路径长度，用数组 path 来记录到达各个顶点的前驱顶点。
+	//其中，如果从源点 s 到顶点 c 有弧 ，则以弧到权值作为 D[v] 的初始值；否则将 D[v] 的初始为无穷大，path 数组初始化为 s 。
+
+	//更新 D 的策略是，若加进 u 做中间顶点，使得 vi 的最短特殊路径长度变短，则修改 vi 的最短特殊路径长度及前驱顶点编号，即当 D[u] + W[u, vi] < D[vi] 时，令 D[vi] = D[u] + W[u, vi], path[vi] = u 。重复上述操作，一旦 S 包含了 V 中所有的顶点， D 记录了从源点 s 到各个顶点的最短路径长度，path 记录了相应最短路径的终点的前驱顶点编号。
+
+	vector<int> dist(this->vexNum); //距离数组，每一个数组单元记录到源点的最短路径长度
+	vector<string> path(this->vexNum);  // 路径数组，保存源到每个顶点的路径 用字符串表示
+	for (int i = 0; i < vexNum; i++) {
+		dist[i] = arcs[start][i].adj;  // 初始化最短路径距离数组
+		path[i] = vertex + "-->" + vexs[i]; // 初始化为源指向顶点的字符串，例如v2-->v7
+	}
+	vector<int> visited(this->vexNum,0);  //状态数组，1表示已求出到当前顶点的额最短路径
+
+	// 初始化
+	dist[start] = 0;  // 源到源最短路径为0
+	visited[start] = 1;
+
+	for (int i = 1; i < vexNum; i++) { //从剩下的未求出最短路径的顶点开始依次求
+		// 找一条最短的特殊路径
+		int k = -1; //临时变量
+		int dmin = INF;  // 寻找到当前的所有路径中路径最短的
+		for (int j = 0; j < vexNum; j++) {
+			if (visited[j] == 0 && dist[j] < dmin) {  // 未被访问且有源点直接到该顶点的连线
+				dmin = dist[j];   // 更新当前最短路径
+				k = j;  // 记录下该顶点
+			}
+		}
+		visited[k] = 1; // 到该顶点最短路径已经求出 ,k为新加入的顶点
+		// 以k为中间点，修正从start到未访问各点的距离
+		for (int j = 0; j < vexNum; j++) {
+			//如果 '起始点到当前点距离' + '当前点到某点距离' < '起始点到某点距离', 则更新
+			if (visited[j] == 0 && dist[k]!=nonAdjInt && arcs[k][j].adj!=nonAdjInt && (dist[k] + arcs[k][j].adj) < dist[j]) {
+				dist[j] = dist[k] + arcs[k][j].adj;  // 更新最短路径长度
+				path[j] = path[k] + "-->" + vexs[j];  // 路径延长
+			}
+		}
+	}
+	cout << endl << "最短路径及对应长度如下:" << endl;
+	for (int i = 0; i < vexNum; i++) {
+		cout << path[i] <<": "<<dist[i]<< endl;
+	}
+}
+
+
+// https://www.jianshu.com/p/3347f54a3187
+// https://www.cnblogs.com/sundahua/p/7349760.html
+// https://www.jianshu.com/p/62dbce1e6178
+// https://www.jianshu.com/p/19ce9bc3d678
+// 拓扑排序
+void GraphAdjMat::Topological() {
+	// 只针对有向无环图
+	// 采用广度优先+队列的方法实现
+	if (type==UDG || type==UDN ) {
+		cout << "必须是有向图!" << endl;
+		return;
+	}
+	vector<string> *res = new vector<string>;
+	vector<int> *inDegree = new vector<int>(this->vexNum); // 入度表
+	for (int i = 0; i < inDegree->size(); i++) {
+		for (int j = 0; j < inDegree->size(); j++) {
+			if (arcs[i][j].adj != nonAdjInt) {
+				(*inDegree)[j]++;      // 计算各个结点入度
+			}
+		}
+	}
+	queue<int> *q = new queue<int>;
+	for (int i = 0; i < inDegree->size(); i++) {
+		if (inDegree->at(i) == 0) {
+			q->push(i);
+		}
+	}
+	while (!q->empty()) {
+		int cur = q->front();
+		q->pop();
+		res->push_back(vexs[cur]);  // 放入结果数组
+		for (int j = 0; j < inDegree->size(); j++) {
+			if (arcs[cur][j].adj != nonAdjInt) {
+				(*inDegree)[j]--;    // 对当前结点的任何邻接顶点的入度数减一
+				if (inDegree->at(j) == 0) {
+					q->push(j);   // 若有入度数为0的邻接顶点，则加入队列
+				}
+			}
+		}
+	}
+	if (res->size() < inDegree->size()) {
+		cout << "图中有环，不存在拓扑排序！" << endl;
+		return;
+	}
+	cout << endl << "拓扑排序输出结果: ";
+	for (int i = 0; i < res->size(); i++) {
+		cout << res->at(i) << " ";
+	}
+	cout << endl;
+}
+
+
+// 判断图中是否有环
+bool GraphAdjMat::HasCircle() {
+	return true;
+}
+
+
+// 判断图是否连通
+bool GraphAdjMat::IsConnected() {
+	return true;
+
+}
+
+
 
 // 测试函数
 void TestGraph() {
-	vector<string>* s = new vector<string>{"v1","v2","v3","v4","v5","v6","v7"};
-	GraphAdjMat::ArcData* arc1 = new GraphAdjMat::ArcData{ "v1","v2",2 };
-	GraphAdjMat::ArcData* arc2 = new GraphAdjMat::ArcData{ "v1","v3",3 };
-	GraphAdjMat::ArcData* arc3 = new GraphAdjMat::ArcData{ "v1","v4",4 };
-	GraphAdjMat::ArcData* arc4 = new GraphAdjMat::ArcData{ "v3","v1",5 };
-	GraphAdjMat::ArcData* arc5 = new GraphAdjMat::ArcData{ "v3","v2",6 };
-	GraphAdjMat::ArcData* arc6 = new GraphAdjMat::ArcData{ "v3","v5",7 };
-	GraphAdjMat::ArcData* arc7 = new GraphAdjMat::ArcData{ "v2","v5",8 };
-	GraphAdjMat::ArcData* arc8 = new GraphAdjMat::ArcData{ "v4","v6",9 };
-	GraphAdjMat::ArcData* arc9 = new GraphAdjMat::ArcData{ "v4","v7",9 };
-	GraphAdjMat::ArcData* arc10 = new GraphAdjMat::ArcData{ "v6","v7",9 };
+	//vector<string>* s = new vector<string>{"v1","v2","v3","v4","v5","v6","v7"};
+	//GraphAdjMat::ArcData* arc1 = new GraphAdjMat::ArcData{ "v1","v2",2 };
+	//GraphAdjMat::ArcData* arc2 = new GraphAdjMat::ArcData{ "v1","v3",3 };
+	//GraphAdjMat::ArcData* arc3 = new GraphAdjMat::ArcData{ "v1","v4",4 };
+	//GraphAdjMat::ArcData* arc4 = new GraphAdjMat::ArcData{ "v3","v4",5 };
+	//GraphAdjMat::ArcData* arc5 = new GraphAdjMat::ArcData{ "v3","v2",6 };
+	//GraphAdjMat::ArcData* arc6 = new GraphAdjMat::ArcData{ "v3","v5",7 };
+	//GraphAdjMat::ArcData* arc7 = new GraphAdjMat::ArcData{ "v2","v5",8 };
+	//GraphAdjMat::ArcData* arc8 = new GraphAdjMat::ArcData{ "v4","v6",9 };
+	//GraphAdjMat::ArcData* arc9 = new GraphAdjMat::ArcData{ "v4","v7",9 };
+	//GraphAdjMat::ArcData* arc10 = new GraphAdjMat::ArcData{ "v6","v7",9 };
+	//GraphAdjMat::ArcData* arc11 = new GraphAdjMat::ArcData{ "v5","v6",6 };
 
 
-	vector<GraphAdjMat::ArcData*>* arc = new vector<GraphAdjMat::ArcData*>(); //类内定义的要加作用域
-	arc->push_back(arc1);
-	arc->push_back(arc2);
-	arc->push_back(arc3);
-	arc->push_back(arc4);
-	arc->push_back(arc5);
-	arc->push_back(arc6);
-	arc->push_back(arc7);
-	arc->push_back(arc8);
-	arc->push_back(arc9);
-	arc->push_back(arc10);
+
+	//vector<GraphAdjMat::ArcData*>* arc = new vector<GraphAdjMat::ArcData*>(); //类内定义的要加作用域
+	//arc->push_back(arc1);
+	//arc->push_back(arc2);
+	//arc->push_back(arc3);
+	//arc->push_back(arc4);
+	//arc->push_back(arc5);
+	//arc->push_back(arc6);
+	//arc->push_back(arc7);
+	//arc->push_back(arc8);
+	//arc->push_back(arc9);
+	//arc->push_back(arc10);
+	//arc->push_back(arc11);
 
 
-	//测试1：无向图
-	std::cout << endl << "无向无权图初始化" << endl;
-	GraphAdjMat* udg = new GraphAdjMat(GraphAdjMat::UDG);
-	udg->Init(s, arc);
-	udg->Display();
 
-	//1.1.深度优先遍历
-	cout << endl << "无向图深度优先遍历序列：" << endl;
-	udg->Display_DFS("v1");
-	cout << endl;
-	//1.2.广度优先遍历
-	cout << endl << "无向图广度优先遍历序列：" << endl;
-	udg->Display_BFS("v2");
-	//1.3.插入新顶点、新边
-	cout << endl << "无向图插入新顶点、新边：" << endl;
-	udg->InsertVertex("v8");
-	udg->InsertArc(new GraphAdjMat::ArcData{ "v8", "v1", 8 });
-	udg->Display();
-	//1.4.删除顶点、边
-	cout << endl << "无向图删除顶点v1、边arc9：" << endl;
-	udg->DeleteVertex("v1");
-	udg->DeleteArc(arc9);
-	udg->Display();
+	////测试1：无向图
+	//std::cout << endl << "无向无权图初始化" << endl;
+	//GraphAdjMat* udg = new GraphAdjMat(GraphAdjMat::UDG);
+	//udg->Init(s, arc);
+	//udg->Display();
+
+	////1.1.深度优先遍历
+	//cout << endl << "无向图深度优先遍历序列：" << endl;
+	//udg->Display_DFS("v1");
+	//cout << endl;
+	////1.2.广度优先遍历
+	//cout << endl << "无向图广度优先遍历序列：" << endl;
+	//udg->Display_BFS("v2");
+	////1.3.插入新顶点、新边
+	//cout << endl << "无向图插入新顶点、新边：" << endl;
+	//udg->InsertVertex("v8");
+	//udg->InsertArc(new GraphAdjMat::ArcData{ "v8", "v1", 8 });
+	//udg->Display();
+	////1.4.删除顶点、边
+	//cout << endl << "无向图删除顶点v1、边arc9：" << endl;
+	//udg->DeleteVertex("v1");
+	//udg->DeleteArc(arc9);
+	//udg->Display();
 
 	//测试2：有向图
+
+	vector<string>* s1 = new vector<string>{ "A","B","C","D","E" };
+	GraphAdjMat::ArcData* arc1 = new GraphAdjMat::ArcData{ "A","B",3 };
+	GraphAdjMat::ArcData* arc2 = new GraphAdjMat::ArcData{ "A","D",7 };
+	GraphAdjMat::ArcData* arc3 = new GraphAdjMat::ArcData{ "B","D",2 };
+	GraphAdjMat::ArcData* arc4 = new GraphAdjMat::ArcData{ "B","C",4 };
+	GraphAdjMat::ArcData* arc5 = new GraphAdjMat::ArcData{ "D","C",5 };
+	GraphAdjMat::ArcData* arc6 = new GraphAdjMat::ArcData{ "D","E",4 };
+	GraphAdjMat::ArcData* arc7 = new GraphAdjMat::ArcData{ "C","E",6 };
+
+
+
+
+
+	vector<GraphAdjMat::ArcData*>* arcs = new vector<GraphAdjMat::ArcData*>(); //类内定义的要加作用域
+	arcs->push_back(arc1);
+	arcs->push_back(arc2);
+	arcs->push_back(arc3);
+	arcs->push_back(arc4);
+	arcs->push_back(arc5);
+	arcs->push_back(arc6);
+	arcs->push_back(arc7);
+
+
+
 	cout << endl << "有向无权图：" << endl;
-	GraphAdjMat* dg = new GraphAdjMat(GraphAdjMat::DG);
-	dg->Init(s, arc);
+	GraphAdjMat* dg = new GraphAdjMat(GraphAdjMat::UDN);
+	dg->Init(s1, arcs);
 	dg->Display();
 
-	//2.1.深度优先遍历
-	cout << endl << "有向无权图深度优先遍历序列：" << endl;
-	dg->Display_DFS("v1");
-	//2.2.广度优先遍历
-	cout << endl << "有向无权图广度优先遍历序列：" << endl;
-	dg->Display_BFS("v2");
+	////2.1.深度优先遍历
+	//cout << endl << "有向无权图深度优先遍历序列：" << endl;
+	//dg->Display_DFS("v1");
+	////2.2.广度优先遍历
+	//cout << endl << "有向无权图广度优先遍历序列：" << endl;
+	//dg->Display_BFS("v2");
+	//dg->Topological();
 
-	//测试：无向有权图(无向网)
-	cout << endl << "无向有权图：" << endl;
-	GraphAdjMat* udn = new GraphAdjMat(GraphAdjMat::UDN);
-	udn->Init(s, arc);
-	udn->Display();
+	dg->Dijkstra("A");
+	////测试：无向有权图(无向网)
+	//cout << endl << "无向有权图：" << endl;
+	//GraphAdjMat* udn = new GraphAdjMat(GraphAdjMat::UDN);
+	//udn->Init(s, arc);
+	//udn->Display();
 
-	//测试：有向有权图(有向网)
-	cout << endl << "有向有权图：" << endl;
-	GraphAdjMat* dn = new GraphAdjMat(GraphAdjMat::DN);
-	dn->Init(s, arc);
-	dn->Display();
+	////测试：有向有权图(有向网)
+	//cout << endl << "有向有权图：" << endl;
+	//GraphAdjMat* dn = new GraphAdjMat(GraphAdjMat::DN);
+	//dn->Init(s, arc);
+	//dn->Display();
+
+
 
 
 }

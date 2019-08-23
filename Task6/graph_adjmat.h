@@ -71,4 +71,17 @@ public:
 	GraphAdjMat* MiniSpanTree_Prim(string vertex);		//最小生成树（Prim 算法）
 	GraphAdjMat* MiniSpanTree_Kruskal(string vertex);	//最小生成树（Kruskal 算法）
 
+	// 该算法只能适应于不含负权重的加权连通图
+	void Dijkstra(string vertex);   // 单元最短路径(Dijkstra 算法)
+	
+	// 该算法适用于有向无环图(Directed Acyclic Graph简称DAG)
+	void Topological();  // 拓扑排序
+
+	// 判断图中有没有环，适用于有向和无向图
+	bool HasCircle();
+
+	// 判断一个图是否连通,适用于无向和有向
+	// 三种方法，深度优先 并查集
+	bool IsConnected();
+
 };
