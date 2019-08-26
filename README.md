@@ -176,6 +176,8 @@ https://github.com/swjtulwy/DataStructure/blob/master/Task5/priority_queue.h
 
 https://github.com/swjtulwy/DataStructure/blob/master/Task5/priority_queue.cpp
 
+---
+
 ## Task 6：图 
 
 - 【图】
@@ -197,3 +199,29 @@ https://github.com/swjtulwy/DataStructure/blob/master/Task5/priority_queue.cpp
 #### 图的邻接矩阵表示以及增删顶点、边操作和两种遍历：
 
 https://github.com/swjtulwy/DataStructure/blob/master/Task6/graph_adjmat.cpp
+
+---
+
+## Task 7：递归 + 回溯 + 分治 + 动态规划 
+
+- 【递归】
+  - 通过LeetCode上【70. 爬楼梯】学习
+
+- 【回溯】
+  - 利用回溯算法求解八皇后问题
+  - 利用回溯算法求解 0-1 背包问题
+
+- 【分治】
+  - 利用分治算法求一组数据的逆序对个数
+
+- 【动态规划】
+  - 0-1 背包问题
+  - 最小路径和（详细可看 Minimum Path Sum）
+  - 编程实现莱文斯坦最短编辑距离
+  - 编程实现查找两个字符串的最长公共子序列
+  - 编程实现一个数据序列的最长递增子序列
+
+## Task7 Solution
+
+https://github.com/swjtulwy/DataStructure/tree/master/Task7
+
