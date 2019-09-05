@@ -124,12 +124,18 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="0-1bag.cpp" />
+    <ClCompile Include="divide_and_conquer.cpp" />
+    <ClCompile Include="minimum_edit_distance.cpp" />
+    <ClCompile Include="minimum_path_sum.cpp" />
     <ClCompile Include="queen.cpp" />
     <ClCompile Include="recursion.cpp" />
     <ClCompile Include="test_main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="0-1bag.h" />
+    <ClInclude Include="divide_and_conquer.h" />
+    <ClInclude Include="minimum_edit_distance.h" />
+    <ClInclude Include="minimum_path_sum.h" />
     <ClInclude Include="queen.h" />
     <ClInclude Include="recursion.h" />
   </ItemGroup>

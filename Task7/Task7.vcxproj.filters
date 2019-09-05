@@ -27,6 +27,15 @@
     <ClCompile Include="0-1bag.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="divide_and_conquer.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="minimum_path_sum.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="minimum_edit_distance.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="recursion.h">
@@ -36,6 +45,15 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="0-1bag.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="divide_and_conquer.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="minimum_path_sum.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="minimum_edit_distance.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
