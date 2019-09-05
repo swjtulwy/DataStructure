@@ -36,6 +36,12 @@
     <ClCompile Include="minimum_edit_distance.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="longest_increasing_subsequence.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="longest_common_subsequence.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="recursion.h">
@@ -54,6 +60,12 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="minimum_edit_distance.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="longest_increasing_subsequence.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="longest_common_subsequence.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

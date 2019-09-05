@@ -125,6 +125,8 @@
   <ItemGroup>
     <ClCompile Include="0-1bag.cpp" />
     <ClCompile Include="divide_and_conquer.cpp" />
+    <ClCompile Include="longest_common_subsequence.cpp" />
+    <ClCompile Include="longest_increasing_subsequence.cpp" />
     <ClCompile Include="minimum_edit_distance.cpp" />
     <ClCompile Include="minimum_path_sum.cpp" />
     <ClCompile Include="queen.cpp" />
@@ -134,6 +136,8 @@
   <ItemGroup>
     <ClInclude Include="0-1bag.h" />
     <ClInclude Include="divide_and_conquer.h" />
+    <ClInclude Include="longest_common_subsequence.h" />
+    <ClInclude Include="longest_increasing_subsequence.h" />
     <ClInclude Include="minimum_edit_distance.h" />
     <ClInclude Include="minimum_path_sum.h" />
     <ClInclude Include="queen.h" />
