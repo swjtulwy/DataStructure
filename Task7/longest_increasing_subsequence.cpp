@@ -2,9 +2,11 @@
 
 void TestLIS() {
 	//std::vector<int> s = {0,8,4,12,2};
-	std::vector<int> s = { 1,4,2,5,3};
+	//std::vector<int> s = {6,5,4,2,3,1,4,5,12,2};
+	std::vector<int> s = {3,5,6,5,4,2,3,1,4,5,12,2};
+	//std::vector<int> s = {1,2,7,8,9,10,3,6,11,3,12};
 	//std::cout << "最大的上升子序列长度为: "<<LongestIncresingSubsequence(s) << std::endl;
-	std::cout << "各阶段的最大上升子序列为: " << std::endl;
+	std::cout << "实时dp数组为: " << std::endl;
 	LongestIncresingSubsequence1(s);
 }
 
@@ -37,23 +39,23 @@ int LongestIncresingSubsequence(std::vector<int> s) {
 	return res;
 }
 
-//1, 4, 2, 5, 3, 7, 4, 0
+//6,5,4,2,3,1,4,5,12,2
 
 // 改进版，采用二分搜索加动态规划，时间复杂度O(nlogn)
 void LongestIncresingSubsequence1(std::vector<int> s) {
 	std::vector<int> dp(s.size());
 	auto len = dp.begin();	
-	for (int num : s) {
+	for (int i = 0; i < s.size();i++) {
 		// 下面返回的是二分查找应该插入的位置
-		auto low = std::lower_bound(dp.begin(), len, num); 
-		*low = num;  // 插入当前元素到查找到的位置
+		auto low = std::lower_bound(dp.begin(), len, s[i]); 
+		*low = s[i];  // 插入当前元素到查找到的位置
 		if (low == len) {  // 如果查找的位置在最后，说明应该加入序列，长度加一
 			len++;
 		}
-		for (auto p = dp.begin(); p != low+1; p++) {
-			std::cout << *p << " ";
+		for (int i = 0; i < low-dp.begin()+1; i++) {
+			std::cout << dp[i] << " ";
 		}
-		std::cout << std::endl;
+		std::cout <<std::endl;
 	}
-	std::cout<<"最大的上升子序列长度为: "<< len - dp.begin()<<std::endl;
+	std::cout<<std::endl<<"最大的上升子序列长度为: "<< len - dp.begin()<<std::endl;
 }
