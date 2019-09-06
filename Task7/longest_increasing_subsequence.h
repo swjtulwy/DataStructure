@@ -7,3 +7,5 @@
 void TestLIS();
 
 int LongestIncresingSubsequence(std::vector<int> s);
+
+void LongestIncresingSubsequence1(std::vector<int> s);
